@@ -50,7 +50,7 @@ jobs:
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.ghalimyassine3 }}
-          password: ${{ secrets.********** }}
+          password: ${{ secrets.b_P4j-qhe4Zd2uh}}
 
       # Étape 3 : Configurer Docker Buildx
       - name: Set up Docker
