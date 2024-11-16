@@ -17,20 +17,25 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Étape 2 : Configurer Java
+      # Étape 2 : Donner les permissions d'exécution au script Maven Wrapper
+      - name: Grant execute permission for Maven Wrapper
+        run: chmod +x ./mvnw
+
+      # Étape 3 : Configurer Java
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
           java-version: '17'
 
-      # Étape 3 : Installer les dépendances
+      # Étape 4 : Installer les dépendances
       - name: Install dependencies
         run: ./mvnw dependency:resolve
 
-      # Étape 4 : Lancer les tests
+      # Étape 5 : Lancer les tests
       - name: Run tests
         run: ./mvnw test
+
 
   deploy:
     runs-on: ubuntu-latest
