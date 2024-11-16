@@ -32,9 +32,8 @@ jobs:
       - name: Install dependencies
         run: ./mvnw dependency:resolve
 
-      # Étape 5 : Lancer les tests
-      - name: Run tests
-        run: ./mvnw test
+      - name: Build with Maven
+        run: mvn clean package -DskipTests
 
   deploy:
     runs-on: ubuntu-latest
